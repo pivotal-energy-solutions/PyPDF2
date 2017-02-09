@@ -1344,7 +1344,7 @@ class PdfFileReader(object):
         formfields = self.getFields()
         return dict(
             (formfields[field]['/T'], formfields[field].get('/V')) for field in formfields \
-                if formfields[field].get('/FT') == '/Tx'
+                if formfields[field].get('/FT') in ('/Tx', '/Ch')
         )
 
     def getNamedDestinations(self, tree=None, retval=None):
